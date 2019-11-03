@@ -15,9 +15,9 @@
     "start": "run-s clean dev",
     "dev": "run-p dev:**",
     "dev:hugo": "cross-env NODE_ENV=development hugo server -d ../dist -s site -D -F",
-    "dev:parcel": "cross-env NODE_ENV=development parcel watch ./site/static/index.js",
+    "dev:parcel": "cross-env NODE_ENV=development parcel watch ./site/assets/index.js",
     "build:hugo": "cross-env NODE_ENV=production hugo -d ../dist -s site --gc --minify",
-    "build:parcel": "cross-env NODE_ENV=development parcel build ./site/static/index.js --experimental-scope-hoisting  --no-cache"
+    "build:parcel": "cross-env NODE_ENV=development parcel build ./site/assets/index.js --experimental-scope-hoisting  --no-cache"
   },
   "devDependencies": {
     "cross-env": "^6.0.3",
