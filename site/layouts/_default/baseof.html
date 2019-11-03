@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{{ .Site.Title }} - {{.Page.Title}}</title>
+    {{ $assets := .Site.Data.assets }}
+    {{ with $assets.css }}
+    <link href="{{ relURL . }}" rel="stylesheet" />
+    {{ end }}
+  </head>
+  <body>
+    <div class="container">
+      <div class="main">
+        {{ block "main" . }}{{ end }}
+      </div>
+    </div>
+
+    {{ with $assets.js }}
+    <script src="{{ relURL .}}"></script>
+    {{ end }}
+  </body>
+</html>

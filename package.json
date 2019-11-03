@@ -1,0 +1,30 @@
+{
+  "name": "hugo-parcel-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate for a Hugo / parcel project",
+  "main": "index.js",
+  "repository": "https://github.com/alexiscolin/hugo-parcel-boilerplate.git",
+  "author": "Alexis Colin <nesquimo@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 10.16.0"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "run-s clean build:parcel build:hugo",
+    "start": "run-s clean dev",
+    "dev": "run-p dev:**",
+    "dev:hugo": "cross-env NODE_ENV=development hugo server -d ../dist -s site -D -F",
+    "dev:parcel": "cross-env NODE_ENV=development parcel watch ./site/static/index.js",
+    "build:hugo": "cross-env NODE_ENV=production hugo -d ../dist -s site --gc --minify",
+    "build:parcel": "cross-env NODE_ENV=development parcel build ./site/static/index.js --experimental-scope-hoisting  --no-cache"
+  },
+  "devDependencies": {
+    "cross-env": "^6.0.3",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.4",
+    "rimraf": "^3.0.0",
+    "sass": "^1.23.3"
+  },
+  "dependencies": {}
+}
